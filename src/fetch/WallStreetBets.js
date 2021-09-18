@@ -1,4 +1,4 @@
-function WallStreetBets (loadElement, elements) {
+function WallStreetBets(loadElement, elements) {
 	var data = {};
 	
 	// Find title

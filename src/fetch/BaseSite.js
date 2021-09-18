@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function fetch(code) {
+async function BaseSite(code) {
 	// Get hmtl source from website.
 	const url = `https://www.quiverquant.com/dashboard/${code}/`;
 	const response = await axios.get(url);
@@ -9,4 +9,4 @@ async function fetch(code) {
 	return html;
 }
 
-export default fetch;
+export default BaseSite;

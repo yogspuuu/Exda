@@ -1,24 +1,23 @@
-import util from 'util';
-import cheerio from 'cheerio';
-import HtmlResponse from './fetch/index.js';
-import WallStreetBets from './fetch/WallStreetBets.js';
+import express from 'express';
+import FetchCore from './fetch/FetchCore.js';
 
-async function run() {
-	// Load html source from website.
-	const loadElement = cheerio.load(
-		await HtmlResponse('SOL')
-	);
+const serve = express();
+const port 	= 3000;
 
-	// get spesific container from html;
-	const dataDetails = loadElement('div.data__details').map((_, elemet) => {
-		const dataElements = loadElement(elemet);
-		const dataTitle = dataElements.find('h3.data__details_title').text();
-		const wallStreetBets = WallStreetBets(loadElement, dataElements);
+// Root route,
+serve.get('/', (req, res) => {
+	res.send('API Gateway.');
+});
 
-		return { dataTitle, wallStreetBets };
-	}).get();
+// Stock/Crypto endpoint,
+serve.set('json spaces', 4);
+serve.get('/:code', async (req, res) => {
+	const data = await FetchCore(req.params.code);
+	
+	res.json(data[0]);
+});
 
-	return dataDetails;
-}
-
-await run()
+// Output terminal.
+serve.listen(port, () => {
+  	console.log(`Exda app listening at http://localhost:${port}`);
+});
