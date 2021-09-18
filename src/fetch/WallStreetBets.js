@@ -10,11 +10,14 @@ function WallStreetBets (loadElement, elements) {
 	}).get();
 
 	// Find description
-	elements.find('div.data__details_chart > div.data__details_chart_side.right > data__details_chart_side_title').map((_, innerChart) => {
+	elements.find('div.data__details_chart > div.data__details_chart_side.right > div.data__details_chart_side_title').map((_, innerChart) => {
 		const dataInnerChart = loadElement(innerChart);
 		const dataInnerChartDescription = dataInnerChart.find('span').text();
 
-		data.description = dataInnerChartDescription;
+		if (dataInnerChartDescription.includes('WallStreetBets')) {
+			data.description = dataInnerChartDescription;
+		}
+
 	});
 	
 	// Find data

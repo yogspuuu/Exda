@@ -21,4 +21,4 @@ async function run() {
 	return dataDetails;
 }
 
-console.log(util.inspect(await run(), { maxArrayLength: null }));
+await run()
