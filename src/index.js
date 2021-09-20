@@ -1,8 +1,8 @@
 import express from 'express';
-import FetchCore from './fetch/FetchCore.js';
+import FetchCore from './utils/FetchCore.js';
 
 const serve = express();
-const port 	= 3000;
+const port = 3000;
 
 // Root route,
 serve.get('/', (req, res) => {
@@ -11,7 +11,7 @@ serve.get('/', (req, res) => {
 
 // Stock/Crypto endpoint,
 serve.set('json spaces', 4);
-serve.get('/:code', async (req, res) => {
+serve.get('/data/:code', async (req, res) => {
 	const data = await FetchCore(req.params.code);
 	
 	res.json(data[0]);

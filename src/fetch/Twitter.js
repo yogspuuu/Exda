@@ -1,4 +1,4 @@
-function WallStreetBets(loadElement, elements) {
+function Twitter(loadElement, elements) {
 	const data = {};
 	const dataListTemp = [];
 	
@@ -7,10 +7,10 @@ function WallStreetBets(loadElement, elements) {
 		const dataInnerChart = loadElement(innerChart);
 		const dataInnerChartTitle = dataInnerChart.find('h6').text();
 
-		if (dataInnerChartTitle.includes('WallStreetBets')) {
-			data.title = dataInnerChartTitle;
+		if (dataInnerChartTitle.includes('Twitter')) {
+			data.description = dataInnerChartTitle;
 		}
-		
+
 	}).get();
 
 	// Find description
@@ -18,7 +18,7 @@ function WallStreetBets(loadElement, elements) {
 		const dataInnerChart = loadElement(innerChart);
 		const dataInnerChartDescription = dataInnerChart.find('span').text();
 
-		if (dataInnerChartDescription.includes('WallStreetBets')) {
+		if (dataInnerChartDescription.includes('Twitter')) {
 			data.description = dataInnerChartDescription;
 		}
 
@@ -45,9 +45,9 @@ function WallStreetBets(loadElement, elements) {
 		dataListTemp.push(dataList);
 	}).get();
 	
-	data.listData = dataListTemp[1];
+	data.listData = dataListTemp[0];
 
 	return data;
 }
 
-export default WallStreetBets;
+export default Twitter;
