@@ -42,4 +42,4 @@ function OffExchangeTrading(loadElement, elements) {
 	return data;
 }
 
-module.exports = OffExchangeTrading;
+export default OffExchangeTrading;

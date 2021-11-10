@@ -50,4 +50,4 @@ function Twitter(loadElement, elements) {
 	return data;
 }
 
-module.exports = Twitter;
+export default Twitter;

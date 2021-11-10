@@ -1,5 +1,5 @@
-const express = require('express');
-const FetchCore = require('./utils/FetchCore.js');
+import express from 'express';
+import FetchCore from './utils/FetchCore.js';
 
 const serve = express();
 const port = 3000;
@@ -19,5 +19,5 @@ serve.get('/data/:code', async (req, res) => {
 
 // Output terminal.
 serve.listen(port, () => {
-  	console.log(`Exda app listening at http://0.0.0.0:${port}`);
+  	console.log(`Exda app listening at http://localhost:${port}`);
 });
