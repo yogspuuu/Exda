@@ -1,8 +1,8 @@
-const { cheerio } = require('cheerio');
-const { HtmlResponse } = require('./BaseSite.js');
-const { Twitter } = require('../fetch/Twitter.js');
-const { WallStreetBets } = require('../fetch/WallStreetBets.js');
-const { OffExchangeTrading } = require('../fetch/OffExchangeTrading.js');
+const cheerio = require('cheerio');
+const HtmlResponse = require('./BaseSite.js');
+const Twitter = require('../fetch/Twitter.js');
+const WallStreetBets = require('../fetch/WallStreetBets.js');
+const OffExchangeTrading = require('../fetch/OffExchangeTrading.js');
 
 async function FetchCore(code) {
 	// Load html source = website.

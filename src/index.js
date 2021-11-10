@@ -1,5 +1,5 @@
 const express = require('express');
-const { FetchCore } = require('./utils/FetchCore.js');
+const FetchCore = require('./utils/FetchCore.js');
 
 const serve = express();
 const port = 3000;
