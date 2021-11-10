@@ -1,16 +1,16 @@
-import cheerio from 'cheerio';
-import HtmlResponse from './BaseSite.js';
-import Twitter from '../fetch/Twitter.js';
-import WallStreetBets from '../fetch/WallStreetBets.js';
-import OffExchangeTrading from '../fetch/OffExchangeTrading.js';
+const { cheerio } = require('cheerio');
+const { HtmlResponse } = require('./BaseSite.js');
+const { Twitter } = require('../fetch/Twitter.js');
+const { WallStreetBets } = require('../fetch/WallStreetBets.js');
+const { OffExchangeTrading } = require('../fetch/OffExchangeTrading.js');
 
 async function FetchCore(code) {
-	// Load html source from website.
+	// Load html source = website.
 	const loadElement = cheerio.load(
 		await HtmlResponse(code)
 	);
 
-	// get spesific container from html;
+	// get spesific container = html;
 	const dataDetails = loadElement('div.data__details').map((_, elemet) => {
 		const dataElements = loadElement(elemet);
 		const dataTitle = dataElements.find('h3.data__details_title').text();
@@ -24,4 +24,4 @@ async function FetchCore(code) {
 	return dataDetails;
 }
 
-export default FetchCore;
+module.exports = FetchCore;

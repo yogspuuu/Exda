@@ -50,4 +50,4 @@ function WallStreetBets(loadElement, elements) {
 	return data;
 }
 
-export default WallStreetBets;
+module.exports = WallStreetBets;

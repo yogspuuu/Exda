@@ -1,4 +1,4 @@
-import axios from 'axios';
+const { axios } = require('axios');
 
 async function BaseSite(code) {
 	// Get hmtl source from website.
@@ -9,4 +9,4 @@ async function BaseSite(code) {
 	return html;
 }
 
-export default BaseSite;
+module.exports = BaseSite;
