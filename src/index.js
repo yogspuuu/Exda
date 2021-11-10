@@ -19,5 +19,5 @@ serve.get('/data/:code', async (req, res) => {
 
 // Output terminal.
 serve.listen(port, () => {
-  	console.log(`Exda app listening at http://localhost:${port}`);
+  	console.log(`Exda app listening at http://0.0.0.0:${port}`);
 });
